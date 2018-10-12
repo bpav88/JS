@@ -178,6 +178,8 @@ function x(a) {
 
 console.log(x([1, 5, 8, "ju", NaN, 87, 3, "56"])); // Pri unosu niza nije potrebno deklarisati niz u funkciji.
 
+//12. zadatak
+
 function pen(a, b) {
     var i;
     var c = 2018 - a;
@@ -193,7 +195,12 @@ function pen(a, b) {
         } else {
             return "Gospodin je vec u penziji!"
         }
+    } else {
+        return 'Pogresan unos!';
+
+
     }
+
 }
 
-console.log(pen(1980, "f"));
+console.log(pen(1980, "m"));
