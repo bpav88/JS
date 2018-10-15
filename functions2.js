@@ -1,49 +1,45 @@
 //1. zadatak
 
-function if_is_string(a) {
-    // var result = false;
-
+function string_check(a) {
     if (typeof a == "string") {
-        return "String";
+        return "Input jeste string!";
     } else {
-        return "Nije string";
+        return "Input nije string!";
     }
-    // return result;
 }
-var final = if_is_string(NaN);
-console.log(final);
 
-//2. zadatak
+console.log(string_check("12"));
 
-function a(a) {
-    result = true;
+//2. zadatak TODO problem sa false unosom!
+
+function blank(a) {
     if (a == " ") {
-        result = true;
+        return "Blank";
     } else {
-        result = false;
+        return "Not a blank!";
     }
-    return result;
 }
-var final = a(" ");
-console.log(final);
+
+console.log(blank(false));
 
 //3. zadatak
 
-function x(a, b) {
+function string_line(a, b) {
     var i;
-    var res = '';
-    for (i = 1; i <= b; i++) {
-        res = res + a;
-    }
-    return res;
+    var str = a;
 
+    for (i = 1; i < b; i++) {
+        str = str + a;
+    }
+
+    return str;
 }
 
-console.log(x('Bla', 7));
+console.log(string_line("bla", 7));
 
 //4. zadatak
 
-function x(a, b) {
+function letter_app(a, b) {
     var i;
     var br = 0;
 
@@ -52,43 +48,61 @@ function x(a, b) {
             br++;
         }
     }
-    return br;
+    if (br > 0) {
+        return "Slovo " + b + " pojavljuje se " + br + " puta!";
+    } else {
+        return "Nema slova " + b;
+    }
 }
-console.log(x('aleksandare', 'e'));
 
-//5. i 6. zadatak
+console.log(letter_app("ana voli milovana", "a"));
 
-function a(a, b) {
+//5. zadatak
+
+function first_pos(a, b) {
     var i;
-    var rez = 0;
 
     for (i = 0; i < a.length; i++) {
         if (a[i] == b) {
-            rez = i + 1;
-            //5. zadatak break;
+            return i + 1;
+            break;
+        }
+        else {
+            return -1;
         }
     }
+}
+console.log(first_pos("ana voli milovana", "z"));
 
-    if (rez == 0) {
-        return -1;
+//6. zadatak
+
+function last_app(a, b) {
+    var i;
+    var p = 0;
+
+    for (i = 0; i < a.length; i++) {
+        if (a[i] == b) {
+            p = i + 1;
+        }
+    }
+    if (p != 0) {
+        return p;
     } else {
-        return rez;
+        return -1;
     }
 }
 
-
-console.log(a("kilmanm", "m"));
+console.log(last_app("ana voli milovana", "v"));
 
 //7. zadatak
 
-function x(a) {
+function str2arr(a) {
     var i;
     var niz = [];
 
     for (i = 0; i < a.length; i++) {
-        if (a[i] == ' ') {
+        if (a[i] == " ") {
             niz[i] = null;
-
         } else {
             niz[i] = a[i];
         }
@@ -96,111 +110,128 @@ function x(a) {
     return niz;
 }
 
-console.log(x('Ana voli Milovana'));
+console.log(str2arr("ana voli milovana"));
 
 //8. zadatak
 
-function a(a) {
+function prime(a) {
     var i;
-    var rez = true;
-    for (i = 2; i < a / 2; i++) {
+    var br = 0;
+
+    for (i = 1; i < a / 2; i++) {
         if (a % i == 0) {
-            rez = false;
-            break;
+            br++;
         }
     }
-    if (rez == true) {
-        return "Boj je prost"
+    if (br > 0) {
+        return "Broj nije prost!";
     } else {
-        return "Broj nije prost"
+        return "Broj je prost!";
     }
 }
-var h = a(15);
-console.log(h);
+
+console.log(prime(6));
 
 //9. zadatak
 
-function replace(a, b) {
+function replace_blank(a, b) {
     var i;
-    var st = "";
+    var str = "";
+
     for (i = 0; i < a.length; i++) {
         if (a[i] == " ") {
-
             switch (b) {
                 case "+":
-                    st = st + b;
+                    str = str + "+";
                     break;
                 case "_":
-                    st = st + b;
+                    str = str + "_";
                     break;
                 default:
-                    st = st + "-";
+                    str = str + "-";
             }
         } else {
-            st = st + a[i];
+            str = str + a[i];
         }
     }
-    return st;
+    return str;
 }
-var h = replace("ana voli milovana", "");
-console.log(h);
+
+console.log(replace_blank("ana voli milovana", "_"));
 
 //10. zadatak
 
-function x(a, b) {
+function str(a, b) {
     var i;
-    var res = '';
+    var s = "";
 
     for (i = b; i < a.length; i++) {
-        res = res + a[i];
+        s = s + a[i];
     }
-    res = res + '...';
-    return res;
+    s = s + "...";
+    return s;
 }
-console.log(x('milovan', 3));
+
+console.log(str("milovan", 3));
 
 //11. zadatak
 
-function x(a) {
-    //var a = ['1', '21', undefined, '42', '1e+3', Infinity];
-    var niz = [];
+function numb() {
     var i;
-    var s = 0;
+    var a = ["1", "21", undefined, "42", "1e+3", Infinity];
+    var niz = [];
+    var br = 0;
 
     for (i = 0; i < a.length; i++) {
         if (isFinite(a[i])) {
-            niz[s] = parseFloat(a[i]);
-            s++;
+            niz[br] = parseFloat(a[i]);
+            br++;
         }
     }
     return niz;
 }
 
-console.log(x([1, 5, 8, "ju", NaN, 87, 3, "56"])); // Pri unosu niza nije potrebno deklarisati niz u funkciji.
+console.log(numb());
 
 //12. zadatak
 
-function pen(a, b) {
-    var i;
-    var c = 2018 - a;
-    if (b == "f") {
-        if (60 - c > 0) {
-            return 60 - c;
+function ret(a, b) {
+
+    if (a == "m") {
+        if (2018 - b < 65) {
+            return "Gospodinu je ostalo do penzije " + (65 - (2018 - b)) + " godina!";
         } else {
-            return "Gospodja je vec u penziji"
+            return "Gospodin je vec penzionisan!";
         }
-    } else if (b == "m") {
-        if (65 - c > 0) {
-            return 65 - c;
+    } else if (a == "f") {
+        if (2018 - b < 60) {
+            return "Gospodji je ostalo do penzije " + (60 - (2018 - b)) + " godina!";
         } else {
-            return "Gospodin je vec u penziji!"
+            return "Gospodja je vec penzionisana!";
         }
     } else {
-        return 'Pogresan unos!';
-
-
+        return "Pogresan unos!";
     }
-
 }
 
-console.log(pen(1980, "m"));
+console.log(ret("m", 1940));
+
+//13. zadatak
+
+function hum_num(a) {
+
+    if (a % 100 >= 11 && a % 100 <= 13) {
+        a = a + "th";
+    } else if (a % 10 == 1) {
+        a = a + "st";
+    } else if (a % 10 == 2) {
+        a = a + "nd";
+    } else if (a % 10 == 3) {
+        a = a + "rd";
+    } else {
+        a = a + "th";
+    }
+    return a;
+}
+
+console.log(hum_num(5));

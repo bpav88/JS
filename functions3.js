@@ -1,146 +1,199 @@
-//13. zadatak
+//1. zadatak
 
-function human_number(a) {
-    var s = '';
+function insert(a, b, c) {
+    var i;
+    var str = "";
 
-    if (a % 100 >= 11 && a % 100 <= 13) {
-        s = a + 'th';
-    } else if (a % 10 == 1) {
-        s = a + 'st';
-    } else if (a % 10 == 2) {
-        s = a + 'nd';
-    } else if (a % 10 == 3) {
-        s = a + 'rd';
+    if (typeof c == "undefined") {
+        str = b + a;
     } else {
-        s = a + 'th';
+        for (i = 0; i < a.length; i++) {
+            if (i == c - 1) {
+                str = str + a[i] + b;
+            } else {
+                str = str + a[i];
+            }
+        }
     }
-    return s;
+    return str;
 }
 
-console.log(human_number(2));
+console.log(insert("ana voli milovana", " i milana i", 8));
 
 //2. zadatak
 
-//3. zadatak 
+function arr() {
+    var i;
+    var str = "";
+    var a = [NaN, 0, 15, false, -22, '', undefined, 47, null];
+
+    for (i = 0; i < a.length; i++) {
+        if (isFinite(a[i]) && a[i] != null) {
+            str = str + a[i];
+        }
+    }
+    return str;
+}
+
+console.log(arr());
+
+//3. zadatak
 
 function falsy() {
-
-    var a = [NaN, 0, 15, false, -22, "", undefined, 47, null];
+    var a = [NaN, 0, 15, false, -22, '', undefined, 47, null];
     var i;
-    var j = 0;
-    var x = [];
-
+    var niz = [];
+    var br = 0;
 
     for (i = 0; i < a.length; i++) {
         if (a[i]) {
-            x[j] = a[i];
-            j++;
+            niz[br] = a[i];
+            br++;
         }
     }
-    return x;
-
+    return niz;
 }
 
 console.log(falsy());
 
 //4. zadatak
 
-
-function reverse(x) {
-    var s = "";
-    s = s + x;
-    var a = "";
+function reverse(a) {
     var i;
+    var s = "";
+    s = s + a;
+    var t = "";
 
     for (i = s.length - 1; i >= 0; i--) {
-        a = a + s[i];
-
+        t = t + s[i];
     }
-    return parseInt(a);
+    return parseInt(t);
 }
 
-console.log(reverse(12345));
+console.log(reverse(1234567));
 
-//5.zadatak
+//5. zadatak
 
-function niz(a, b) {
-    var c = [];
-    x = b - 1;
+function part_arr(a, b) {
     var i;
+    var br = b - 1;
+    var niz = [];
 
-    for (i = 1; i <= b; i++) {
-        c[x] = a[a.length - i];
-        x--;
+    for (i = a.length - 1; i > a.length - b - 1; i--) {
+        niz[br] = a[i];
+        br--;
     }
-    return c;
+    return niz;
 }
-console.log(niz([1, 5, 2, 7, 4, 8, 4, 9], 6));
+
+console.log(part_arr([1, 3, 6, 2, 6, 9, 4, 7, 8], 5));
 
 //6. zadatak
 
-function niz(a, b) {
-
-    var c = [];
+function repeat(a, b) {
     var i;
+    var niz = [];
 
     for (i = 0; i < a; i++) {
-        c[i] = b;
-
+        if (typeof b == "undefined") {
+            niz[i] = null;
+        } else {
+            niz[i] = b;
+        }
     }
-    return c;
+    return niz;
 }
 
-console.log(niz(4, 0));
+console.log(repeat(5));
 
-// 7. zadatak
+//7. zadatak
 
-function savrsen_broj(a) {
+function perfect_num(a) {
     var sum = 0;
     var i;
-
     for (i = 1; i <= a / 2; i++) {
-
         if (a % i == 0) {
             sum = sum + i;
         }
-
     }
     if (sum == a) {
-
-        return "savrsenbroj"
-
+        return "Perfect number!";
     } else {
-
-        return "nijesavrsenbroj"
+        return "Number is not perfect!";
     }
 }
 
+console.log(perfect_num(28));
 
-console.log(savrsen_broj(28));
+//8. zadatak
 
-// 8 zadatak.
-
-function word(a, b) {
+function find_str(a, b) {
     var i, j;
-    var br1;
+    var br
     var br2 = 0;
 
     for (i = 0; i < a.length; i++) {
         if (a[i] == b[0]) {
-            br1 = 1;
+            br = 1;
             for (j = 1; j < b.length; j++) {
                 if (a[i + j] == b[j]) {
-                    br1++;
+                    br++;
                 }
             }
-            if (br1 == b.length) {
+            if (br == b.length) {
                 br2++;
             }
         }
     }
-    return br2;
+    return "Broj ponavljanja stringa je: " + br2;
 }
-console.log(word('ana voli milovana bsdfgsdf ana fderg anaana', 'ana'));
 
+console.log(find_str("ana voli ana milovana", "ana"));
 
+//9. zadatak
 
+function hide_email(a) {
+    var i, j, q;
+    var s = "";
+
+    for (j = 0; j < 5; j++) {
+        s = s + a[j];
+    }
+    s = s + "...";
+    for (i = 0; i < a.length; i++) {
+        if (a[i] == "@") {
+            for (q = i; q < a.length; q++) {
+                s = s + a[q];
+            }
+        }
+    }
+    return s;
+}
+
+console.log(hide_email("pavlovic88@gmail.com"));
+
+//10. zadatak
+
+function most() {
+    var a = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
+    var i, j;
+    var br = 0;
+    var pr = 1;
+    var e;
+
+    for (i = 0; i < a.length; i++) {
+        for (j = i; j < a.length; j++) {
+            if (a[i] == a[j]) {
+                br++;
+            }
+            if (br > pr) {
+                pr = br;
+                e = a[i];
+            }
+        }
+        br = 0;
+    }
+    return e;
+}
+
+console.log(most());
