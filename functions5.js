@@ -61,3 +61,40 @@ function grades(a, b) {
 }
 
 console.log(grades("Bogdan", 82));
+
+//6. zadatak
+
+function calculate() {
+    var i;
+    var even = 0;
+    var odd = 0;
+    var result;
+
+    for (i = 1; i <= 1000; i++) {
+        if (i % 2 == 0) {
+            even = even + i;
+        } else if (i <= 500) {
+            odd = odd + i;
+        }
+    }
+    result = (even - odd) * 12.5;
+    return result;
+}
+
+console.log(calculate());
+
+//7. zadatak  [ "M", "Anne", 12, "Steve", "Joe", "John", "David", "Mark", true, "A" ]
+
+function stringCheck(array) {
+    var i;
+    var newString = '';
+
+    for (i = 0; i < array.length; i++) {
+        if (typeof array[i] == 'string' && array[i].length > 1) {
+            newString = newString + array[i][0] + array[i][1];
+        }
+    }
+    return newString;
+}
+
+console.log(stringCheck(["M", "Anne", 12, "Steve", "Joe", "John", "David", "Mark", true, "A"]));
