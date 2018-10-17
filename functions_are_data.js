@@ -13,9 +13,7 @@ console.log(sum(3, 5));
 
 console.log(typeof sum);
 
-
-// Write a function to count vowels in a provided string. If you are  not aware of indexOf function, try to use switch statement.
-// Vowels are a, e, i, o, and u as well as A, E, I, O, and U. 
+//1.zadatak
 
 var vowels = function (a) {
 
@@ -42,9 +40,7 @@ var vowels = function (a) {
 var test = vowels('U lazi s kratke nog');
 console.log(test);
 
-// Write a function that combines two arrays by alternatingly taking elements.
-
-// [‘a’,’b’,’c’], [1,2,3] -> [‘a’,1,’b’,2,’c’,3]
+//2. zadatak
 
 function combinesArrays(a, b) {
     var i;
@@ -61,9 +57,8 @@ function combinesArrays(a, b) {
 var test = combinesArrays(['a', 'b', 'c'], [1, 2, 3]);
 console.log(test);
 
-// Write a function that rotates a list by k elements.
+//3. zadatak
 
-// For example [1,2,3,4,5,6] rotated by two becomes [3,4,5,6,1,2]
 function rotate(a, b) {
     var i;
     var niz = [];
@@ -82,8 +77,7 @@ function rotate(a, b) {
 
 console.log(rotate([1, 2, 3, 4, 5, 6, 7, 8], 5));
 
-
-// Write a function that takes a number and returns array of its digits.
+//4. zadatak
 
 function digit(a) {
     s = "" + a;
@@ -98,21 +92,28 @@ function digit(a) {
 console.log(digit(213445));
 
 
-// Write a program that prints a multiplication table for numbers up to 12.
+//5. zadatak
 
 function multiplication() {
     var i;
     var j;
     var str = '';
+    niz = '';
+
     for (i = 1; i <= 12; i++) {
         for (j = 1; j <= 12; j++) {
             str = str + " " + i * j;
         }
-        console.log(str);
+        niz = str + "\n";
+        // console.log(str);
+
         str = '';
+
     }
-    return
+    return niz;
 }
+
+console.log(multiplication());
 
 // Write a function to input temperature in Centigrade and convert to Fahrenheit.
 

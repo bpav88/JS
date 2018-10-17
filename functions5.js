@@ -98,3 +98,52 @@ function stringCheck(array) {
 }
 
 console.log(stringCheck(["M", "Anne", 12, "Steve", "Joe", "John", "David", "Mark", true, "A"]));
+
+//8. zadatak
+
+function reverseString(string) {
+    var i;
+    var reverse = '';
+
+    for (i = string.length - 1; i >= 0; i--) {
+        reverse = reverse + string[i];
+    }
+    return reverse;
+}
+
+console.log(reverseString('Belgrade Institute of Technology'));
+
+//9. zadatak
+
+function combination1to7() {
+    var i, j;
+    var str = '';
+
+    for (i = 1; i <= 7; i++) {
+        for (j = 1; j <= 7; j++) {
+            if (i != j) {
+                str = str + ',' + '(' + i + ',' + j + ')';
+            }
+        }
+    }
+    return str;
+}
+
+console.log(combination1to7());
+
+
+//10. zadatak
+
+function isPrime(a) {
+    var i;
+
+    for (i = 2; i < a / 2; i++) {
+        if (a % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(isPrime(7));
+
