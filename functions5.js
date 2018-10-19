@@ -1,11 +1,11 @@
-//1. zadatak TODO pitanje zasto promenljiva mini nece da prihvati i u prvoj iteraciji
+//1. zadatak 
 
 function min_max(a) {
     var i;
     var min = a[0];
     var max = a[0];
-    var mini;
-    var maxi;
+    var mini = 0;
+    var maxi = 0;
     var t;
 
     for (i = 0; i < a.length; i++) {
@@ -26,7 +26,7 @@ function min_max(a) {
     return a;
 }
 
-console.log(min_max([1, 5, 9, 6, -1, 2, 8]));
+console.log(min_max([1, 5, 9, 6, 3, 2, 8]));
 
 //2. zadatak
 
