@@ -147,3 +147,49 @@ function isPrime(a) {
 
 console.log(isPrime(7));
 
+//11. zadatak
+
+function isPalindrome(string) {
+    var newString = "";
+
+    for (var i = 0; i < string.length; i++) {
+        if (string[i] !== " ") {
+            newString = newString + string[i];
+        }
+    }
+
+    for (var i = 0, j = newString.length - 1; i < newString.length / 2, j > newString.length / 2 - 1;
+        i++ , j--) {
+        if (newString[i] !== newString[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+console.log(isPalindrome("ana voli milovana"));
+
+//12. zadatak
+
+function greatestCommonDivisor(number1, number2) {
+    var divisors = [];
+    var counter = 0;
+    var maxDivisor = 1;
+
+    for (var i = 1; i < number1; i++) {
+        if (number1 % i === 0) {
+            divisors[counter] = i;
+            counter++;
+        }
+    }
+    
+    for (var i = 0; i < divisors.length; i++) {
+        if (number2 % divisors[i] === 0 && divisors[i] > maxDivisor){
+            maxDivisor = divisors[i];
+        }
+    }
+    return maxDivisor;
+}
+
+console.log(greatestCommonDivisor(81, 9));
+

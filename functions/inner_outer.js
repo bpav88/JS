@@ -1,5 +1,5 @@
 (function() {
-  console.log("Hello from LIFE!");
+  console.log("Hello from IIFE!");
 })();
 
 function outer() {
