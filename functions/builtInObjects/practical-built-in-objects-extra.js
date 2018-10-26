@@ -233,13 +233,13 @@ console.log(mostExpensive(products));
 // 7. a. Write a function that checks if a given string is written in all capitals.
 
 function isAllUpperCase(string) {
-    if (string == string.toUpperCase())
-        return true;
+    if (string == string.toUpperCase()) {
+        return string;
+    } else {
+        return "error";
+    }
 
-    return false;
 }
-
-console.log(isAllUpperCase('HAHA'));
 
 // b. Write a function that checks if a given string contains any digits.
 
@@ -247,6 +247,156 @@ function hasDigit(string) {
 
     var newArr = string.split('');
 
-    for (var i = 0; i < string.length; i++)
-        if (parseInt(newArr[i]))
+    for (var i = 0; i < string.length; i++) {
+        if (!isNaN(parseInt(newArr[i]))) {
+            return string;
+        }
+    }
+    return "error";
+
 }
+
+
+// c. Write a function that checks if a given string is a valid hexadecimal color.
+
+function isColor(string) {
+    if (string.length == 6) {
+        var tmp = parseInt(string, 16).toString(16); // :)
+        if (tmp === string) {
+            return string;
+        } else {
+            console.log("error");
+
+        }
+    } else {
+        return "error";
+
+    }
+}
+
+// d. Write a function that checks if a given number belongs to the interval from 1900 to 2018. 
+
+function intervalCheck(number) {
+    if (number >= 1900 && number <= 2018) {
+        return number;
+    } else {
+        return "error";
+
+    }
+}
+
+// e. Write a function named validator that returns an object with properties stringValidator, passwordValidator, colorValidator, and yearValidator referencing the functions from a) to d).
+
+function Validator(string, password, color, number) {
+    this.string = isAllUpperCase(string);
+    this.password = hasDigit(password);
+    this.color = isColor(color);
+    this.number = intervalCheck(number);
+}
+
+var validator = new Validator("BOGDAN", "bodf", "bbb222", 1988);
+
+console.log(validator);
+
+
+// Write a function that calculates a number of days to your birthday.
+// Input: 25 February 
+// Output: 5 days
+
+function daysToBirthday(date) {
+    var today = new Date();
+    var birthday = new Date(date);
+    var result;
+
+    //TODO: 
+    if (today > birthday) {
+        result = Math.round(((birthday - today) / 864e5) + 365);
+        return "Preostalo je: " + result + " dana."
+    } else {
+        result = Math.round((birthday - today) / 864e5);
+        return "Preostalo je: " + result + " dana."
+    }
+}
+
+console.log(daysToBirthday("2018, 10, 23"));
+
+// Write a function that for a given departure and arrival time calculates the time the trip takes.
+// 	Input: 8:22:13 11:43:22
+// 	Output: 3 hours 21 minutes 9 seconds
+
+function calculateTime(departure, arrival) {
+
+    var year = new Date().getFullYear();
+    var newDeparture = new Date(year + " " + departure);
+    var newArrival = new Date(year + " " + arrival);
+
+
+
+    var result = (newArrival - newDeparture);
+
+    //TODO:
+    var hours = Math.floor(result / 36e5);
+    var minutes = Math.floor((result % 36e5) / 6e4);
+    var seconds = Math.floor(((result % 36e5) % 6e4) / 1000);
+    return hours + " Hours " + minutes + " minutes " + seconds + " seconds";
+}
+console.log(calculateTime("8:22:13", "11:43:22")); //3 21 9
+
+
+
+// Write a constructor function that creates points in space. Each point in space has its own x, y, and z coordinate. For example, (3, 5, 1) can be a point in space.
+// B) Write a function that calculates the distance between two points in the space. 
+
+function Point(a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+}
+
+function distance(point1, point2) {
+    var dist = Math.sqrt(Math.pow((point1.a - point2.a), 2) + Math.pow((point1.b - point2.b), 2) + Math.pow((point1.c - point2.c), 2));
+    return dist;
+}
+var point1 = new Point(3, 5, 1);
+var point2 = new Point(4, 6, 3);
+
+console.log(distance(point1, point2));
+
+// 11. a. Write a function that generates a random integer value between 5 and 20.
+
+function random5To20() {
+    return Math.floor(Math.random() * (20 - 5)) + 5;
+}
+function random50To100() {
+    return Math.floor(Math.random() * (100 - 50)) + 50;
+}
+function rand(number, random) {
+    var array = [];
+    for (var i = 0; i < number; i++) {
+        array[i] = random();
+    }
+    return array;
+}
+console.log(rand(5, random50To100));
+
+// Write a function that shuffles the elements of a given array. 
+// 		Input: [3, 6, 11, 2, 9, 1]
+// 		Output: [6, 2, 9, 1, 3, 11]  (it can be any random permutation of the given array)
+
+
+function randomPosition(array) {
+    var newArray = [];
+    var indexArray = [];
+
+    for (var i = 0; i < array.length;) {
+        index = Math.floor(Math.random() * array.length);
+
+        if (indexArray.indexOf(index) == -1) {
+            indexArray.push(index);
+            newArray.push(array[index]);
+            i++;
+        }
+    }
+    return newArray;
+}
+console.log(randomPosition([3, 6, 11, 2, 9, 1]));
