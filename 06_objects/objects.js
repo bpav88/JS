@@ -16,6 +16,7 @@ var musicGroup = {
     }
 };
 
+console.log(musicGroup.name);
 
 console.log(musicGroup.groupAge());
 console.log("Ova grupa ima " + musicGroup.numberOfAlbums() + " albuma!");

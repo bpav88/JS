@@ -307,18 +307,20 @@ function daysToBirthday(date) {
     var today = new Date();
     var birthday = new Date(date);
     var result;
+    var miliInDay = 864e5;
+    var dayInYear = 365;
 
     //TODO: 
     if (today > birthday) {
-        result = Math.round(((birthday - today) / 864e5) + 365);
+        result = Math.round(((birthday - today) / miliInDay) + dayInYear);
         return "Preostalo je: " + result + " dana."
     } else {
-        result = Math.round((birthday - today) / 864e5);
+        result = Math.round((birthday - today) / miliInDay);
         return "Preostalo je: " + result + " dana."
     }
 }
 
-console.log(daysToBirthday("2018, 10, 23"));
+console.log(daysToBirthday("2018, 10, 29"));
 
 // Write a function that for a given departure and arrival time calculates the time the trip takes.
 // 	Input: 8:22:13 11:43:22
@@ -329,15 +331,18 @@ function calculateTime(departure, arrival) {
     var year = new Date().getFullYear();
     var newDeparture = new Date(year + " " + departure);
     var newArrival = new Date(year + " " + arrival);
+    var miliInHours = 36e5;
+    var miliInMin = 6e4;
+    var miliInSec = 1000;
 
 
 
     var result = (newArrival - newDeparture);
 
     //TODO:
-    var hours = Math.floor(result / 36e5);
-    var minutes = Math.floor((result % 36e5) / 6e4);
-    var seconds = Math.floor(((result % 36e5) % 6e4) / 1000);
+    var hours = Math.floor(result / miliInHours);
+    var minutes = Math.floor((result % miliInHours) / miliInMin);
+    var seconds = Math.floor(((result % miliInHours) % miliInMin) / miliInSec);
     return hours + " Hours " + minutes + " minutes " + seconds + " seconds";
 }
 console.log(calculateTime("8:22:13", "11:43:22")); //3 21 9
@@ -347,14 +352,14 @@ console.log(calculateTime("8:22:13", "11:43:22")); //3 21 9
 // Write a constructor function that creates points in space. Each point in space has its own x, y, and z coordinate. For example, (3, 5, 1) can be a point in space.
 // B) Write a function that calculates the distance between two points in the space. 
 
-function Point(a, b, c) {
-    this.a = a;
-    this.b = b;
-    this.c = c;
+function Point(x, y, z) {
+    this.x = x;
+    this.y = y;
+    this.z = z;
 }
 
 function distance(point1, point2) {
-    var dist = Math.sqrt(Math.pow((point1.a - point2.a), 2) + Math.pow((point1.b - point2.b), 2) + Math.pow((point1.c - point2.c), 2));
+    var dist = Math.sqrt(Math.pow((point1.x - point2.x), 2) + Math.pow((point1.y - point2.y), 2) + Math.pow((point1.z - point2.z), 2));
     return dist;
 }
 var point1 = new Point(3, 5, 1);
