@@ -1,0 +1,26 @@
+{
+    "name": "Weekend Festival",
+    "programList": [
+        {
+            "date": "2018-10-17",
+            "movieList": [
+                {
+                    "title": "Bambi",
+                    "genre": {
+                        "name": "action"
+                    },
+                    "length": 120
+                },
+                {
+                    "title": "Spiderman",
+                    "genre": {
+                        "name": "horror"
+                    },
+                    "length": 90
+                }
+            ],
+            "moviesNumber": 3
+        }
+    ],
+    "allMoviesNumber": 5
+}

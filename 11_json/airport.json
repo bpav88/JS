@@ -1,0 +1,31 @@
+{
+    "name": "Nikola Tesla",
+    "listOfFlights": [
+        {
+            "relation": "BG-PG",
+            "date": "2018-11-15",
+            "listOfPassengers": [
+                {
+                    "person": {
+                        "name": "Ana",
+                        "surname": "Arsic"
+                    },
+                    "seat": {
+                        "number": 25,
+                        "category": "b"
+                    }
+                },
+                {
+                    "person": {
+                        "name": "Bogdan",
+                        "surname": "Pavlovic"
+                    },
+                    "seat": {
+                        "number": 13,
+                        "category": "b"
+                    }
+                }
+            ]
+        }
+    ]
+}
