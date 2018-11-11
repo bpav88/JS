@@ -82,8 +82,8 @@ let uiModule = (function () {
     // let $addButton = document.querySelector('button');
     let $passedUl = document.querySelector('.passed');
     let $failedUl = document.querySelector('.failed');
-    let $spanPassed = document.querySelector('.spanPassed');
-    let $spanFailed = document.querySelector('.spanFailed');
+    let $passedStat = document.querySelector('.passed-stat');
+    let $failedStat = document.querySelector('.failed-stat');
     let $h2 = document.querySelector('h2 span');
 
     function collectData() {
@@ -108,7 +108,7 @@ let uiModule = (function () {
         let letterName = collectedData.name[0];
         let letterSurname = collectedData.surname[0];
 
-        if (letterName === letterName.toUpperCase() && letterSurname === letterSurname.toUpperCase() && collectedData.grade > 0 && collectedData.grade < 11) {
+        if (letterName === letterName.toUpperCase() && letterSurname === letterSurname.toUpperCase() && collectedData.grade >=5 && collectedData.grade <= 10) {
             return true;
         } else {
             return false;
@@ -117,16 +117,17 @@ let uiModule = (function () {
 
     function updateList(exam, $ul) {
         let $li = document.createElement('li');
+        $li.classList.add('list-group-item');
         $li.textContent = exam.getExamInfo();
         $ul.appendChild($li);
     }
 
     function updateStatistic() {
-        let passed = $passedUl.querySelectorAll('li').length;
-        let failed = $failedUl.querySelectorAll('li').length;
+        let passed = $passedUl.querySelectorAll('li').length -1;
+        let failed = $failedUl.querySelectorAll('li').length -1;
         $h2.textContent = passed + failed;
-        $spanPassed.textContent = passed + ', ' + Math.round(passed / (passed + failed) * 100) + '%';
-        $spanFailed.textContent = failed + ', ' + Math.round(failed / (passed + failed) * 100) + '%';
+        $passedStat.textContent = passed + ' - ' + Math.round(passed / (passed + failed) * 100) + '%';
+        $failedStat.textContent = failed + ' - ' + Math.round(failed / (passed + failed) * 100) + '%';
 
     }
 
@@ -164,7 +165,7 @@ let controller = (function (data, ui) {
             ui.updateStatistic();
 
         } else {
-            alert('Error!');
+            alert('Wrong input!!');
         }
 
 
