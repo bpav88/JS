@@ -73,7 +73,6 @@ $programButton.addEventListener("click", function () {
 
     var $programItem = document.querySelector(".program-movie");
     var $optionDate = document.createElement("option");
-    $optionDate.textContent = 
 
 })
 
